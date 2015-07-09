@@ -9,17 +9,28 @@ int main()
 {
     std::unique_ptr<IChatClient> chatClient( new ChatClient);
     chatClient->initialize();
-    chatClient->connect("ws://192.168.0.3:9002");
-    std::thread serviceThread(&IChatClient::startService, chatClient.get());
+    chatClient->startService();
 
     std::string message;
-    do
+    while (true)
     {
         std::cin >> message;
+        if (message == "connect")
+        {
+            chatClient->connect("ws://192.168.0.3:9002");
+            continue;
+        }
+        if (message == "disconnect")
+        {
+            chatClient->closeConnection();
+            continue;
+        }
+        if (message == "close")
+        {
+            break;
+        }
         chatClient->sendMessage(message);
     }
-    while (message != "close");
-    chatClient->closeConnection();
-    serviceThread.join();
+
     return 0;
 }
