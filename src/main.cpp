@@ -30,8 +30,10 @@ public:
 int main()
 {
     std::unique_ptr<IChatClient> chatClient(new ChatClient());
-    std::unique_ptr<IChatClientListener> listener(new PrintListener());
-    chatClient->addChatClientListener(listener.get());
+    {
+        std::shared_ptr<IChatClientListener> listener(new PrintListener());
+        chatClient->addChatClientListener(listener);
+    }
 
     std::string message;
     while (true)
@@ -53,7 +55,6 @@ int main()
         }
         chatClient->sendMessage(message);
     }
-    chatClient->removeChatClientListener(listener.get());
 
     return 0;
 }
