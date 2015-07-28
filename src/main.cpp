@@ -20,6 +20,11 @@ public:
         std::cout << "CONNECTED" << std::endl;
     }
 
+    void onConnectionError()
+    {
+         std::cout << "CONNECTION ERROR" << std::endl;
+    }
+
     void onDisconnected()
     {
         std::cout << "DISCONNECTED" << std::endl;

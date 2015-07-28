@@ -10,7 +10,7 @@ LINK_DIRECTORIES(${LIBRARY_INSTALL_PATH})
 SET (SRC_LIST src/main.cpp)
 
 SET (LIBRARIES ${CMAKE_THREAD_LIBS_INIT}
-               libwebsockets
+               websockets
                chatClientAPI)
 
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRC_LIST})
