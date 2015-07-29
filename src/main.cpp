@@ -22,13 +22,24 @@ public:
 
     void onConnectionError()
     {
-         std::cout << "CONNECTION ERROR" << std::endl;
+        std::cout << "CONNECTION ERROR" << std::endl;
     }
 
     void onDisconnected()
     {
         std::cout << "DISCONNECTED" << std::endl;
     }
+    void onLoginSuccessfull()
+    {
+        std::cout << "LOGGED IN" << std::endl;
+    }
+
+    void onLoginFailed(const std::string& message)
+    {
+        std::cout << "LOGIN FAILED:" << message << std::endl;
+
+    }
+
 };
 
 
