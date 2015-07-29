@@ -49,6 +49,11 @@ int main()
             chatClient->connect(ADDRESS, 9003);
             continue;
         }
+        if (message == "l")
+        {
+            chatClient->login("user2", "pwd2");
+            continue;
+        }
         if (message == "d")
         {
             chatClient->disconnect();
