@@ -50,16 +50,11 @@ int main()
         std::shared_ptr<IChatClientListener> listener(new PrintListener());
         chatClient->addChatClientListener(listener);
     }
-
+    chatClient->setServerProperties(ADDRESS, 9003);
     std::string message;
     while (true)
     {
         std::cin >> message;
-        if (message == "c")
-        {
-            chatClient->connect(ADDRESS, 9003);
-            continue;
-        }
         if (message == "l")
         {
             chatClient->login("user2", "pwd2");
