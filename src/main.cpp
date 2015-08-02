@@ -2,8 +2,8 @@
 #include <memory>
 #include <thread>
 
-#include <ChatClient/ChatClient.h>
-#include <ChatClient/IChatClientListener.h>
+#include <ChatClient/ChatClient.hpp>
+#include <ChatClient/IChatClientListener.hpp>
 
 const char* ADDRESS = "192.168.0.3";
 
@@ -29,7 +29,7 @@ public:
     {
         std::cout << "DISCONNECTED" << std::endl;
     }
-    void onLoginSuccessfull()
+    void onLoginSuccessful()
     {
         std::cout << "LOGGED IN" << std::endl;
     }
