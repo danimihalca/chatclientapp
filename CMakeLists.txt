@@ -6,10 +6,12 @@ find_package (Threads)
 
 INCLUDE_DIRECTORIES(${HEADERS_INSTALL_PATH})
 LINK_DIRECTORIES(${LIBRARY_INSTALL_PATH})
+INCLUDE_DIRECTORIES(${CHAT_UTILS_PATH})
 
 SET (SRC_LIST src/main.cpp)
 
 SET (LIBRARIES ${CMAKE_THREAD_LIBS_INIT}
+				jsoncpp
                websockets
                chatClientAPI)
 
